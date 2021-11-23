@@ -1,0 +1,71 @@
+
+::selection { /* Optional */
+  text-shadow: none;
+  color: #fff;
+  background-color: #00f;
+}
+
+html {
+  /* Declare your font family type in the html selector, then your font-family in the body selector */
+  font-family: sans-serif;
+
+  /* Make base font-size 100% of browser font-size */
+  font-size: 100%;
+
+  /* Declare your box-sizing here, then inherit the box sizing below in the *, *::before and *::after selector */
+  /* https://css-tricks.com/box-sizing */
+  box-sizing: border-box;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth; /* Smoothly animate to different sections within a page, only if the user doesn't mind animations */
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: inherit; /* See line 22 */
+}
+
+body {
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+img {
+  /* For responsive images that adjust & adapt */
+  height: auto;
+  max-width: 100%;
+
+  /* This isn't needed, but as a user, I get frustrated when I highlight text and the image gets highlighted too */
+  user-select: none;
+}
+
+button {
+  color: inherit; /* By default, buttons don't inherit the font colour, this is a useful default to override */
+}
+
+a, button {
+  touch-action: manipulation; /* Element doesn't want double-tap on mobile to zoom */
+}
+
+svg {
+  /* Make the SVGs fit the parent container by default */
+  height: 100%;
+  width: 100%;
+
+  /* Optional - make the SVG's fill be the same as the inherited color */
+  fill: currentColor;
+
+  /* Prevent the SVG from altering cursor interaction */
+  pointer-events: none;
+}
+
+iframe {
+  /* Make the iframes fit the parent container by default */
+  height: 100%;
+  width: 100%
+}
