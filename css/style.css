@@ -99,3 +99,6 @@ nav, footer {
   from {opacity: .4}
   to {opacity: 1}
 }
+.card-img {
+  padding-top: 30px
+}
