@@ -1,6 +1,3 @@
-body {
-  background-color: #DEDEDE
-}
 :root {
   --dark: #333;
   --light: #DDD;
@@ -36,75 +33,93 @@ nav, footer {
   box-shadow: 2px 2px 10px rgba(0,0,0,0.25);
 }
 {box-sizing:border-box}
-.slideshow-container {
-  max-width: 1000px;
-  position: relative;
-  margin: auto;
+.slideshow {
+  background-color: var(--bg);
+  padding: 1em;
+}
+.slideshow-wrapper {
+  position: relative; /*-- this allows children to be position absolutely --*/
+  margin: auto; /*-- simple centering method--*/  max-width: 100%; /*-- contrains slideshow on largest screens --*/
+}
+.slideshow-wrapper img {
+  width: 100%; /*-- makes slideshow responsive in size --*/
 }
 .prev, .next {
-  cursor: pointer;
-  position: absolute;
-  top: 50%
-  width: auto;
-  margin-top: -22px;
-  padding: 16px;
-  color: white;
-  font-weight: bold;
-  font-size: 18px;
-  transition: 0.6s ease;
-  border-radius: 0 3px 3px 0;
-  user-select: none;
+  cursor: pointer; /*-- changes hover cursor to the hand --*/
+  position: absolute; /*-- positions arrows absolutely--*/
+  top: 50%; /*-- positions arrows half the height of parent from top --*/
+  width: auto; /*-- matches width of parent --*/
+  padding: 16px; /*-- adds a little bit of space--*/
+  margin-top: -22px; /*-- adjusts position by height of arrows --*/
+  color: white; /*-- sets color for contrast --*/
+  font-weight: bold; /*-- selects heavier font --*/
+  font-size: 18px; /*-- sets arrow font size --*/
+  transition: 0.6s ease; /*-- sets transition speed for arrow hover--*/
+  border-radius: 0 3px 3px 0; /*-- slightly rounds inside borders --*/
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -ms-user-select: none;
+  user-select: none; /*-- prevents users from selecting buttons --*/
 }
 .next {
-  right: 0;
-  border-radius: 3px 0 0 3px;
+  right: 0; /*-- positions next arrow hard right --*/
+  border-radius: 3px 0 0 3px; /*-- rounds the outside borders --*/
 }
 .prev:hover, .next:hover {
-  background-color: rgba(0,0,0,0.8);
+  background-color: rgba(0,0,0,0.8); /*-- gives a background for contrast on hover --*/
 }
-.text {
-  color: #f2f2f2
-  font-size: 15px;
-  padding: 8px 12px;
-  positi9on: absolute;
-  bottom: 8px;
-  width: 100%
-  text-align: center;
+.captiontext {
+  background: rgba(0,0,0,0.4); /*-- transparent black background --*/
+  color: #f2f2f2; /*-- sets color to almost white --*/
+  font-size: 22px; /*-- sets font size --*/
+  padding: 8px 12px; /*-- sets caption padding --*/
+  position: absolute; /*-- positions caption text absolutely--*/
+  bottom: 8px; /*-- sets position 8px from bottom --*/
+  width: 100%; /*-- sets width equal to container width --*/
+  text-align: center; /*-- aligns text center --*/
 }
-.numbertext {
-  color: #f2f2f2;
-  font-size: 12px;
-  padding: 8px 12px;
-  position: absolute;
-  top: 0;
+.numberof {
+  color: #f2f2f2; /*-- sets color to almost white --*/
+  font-size: 12px; /*-- sets font size --*/
+  padding: 8px 12px; /*-- sets numberof padding --*/
+  position: absolute; /*-- positions numberof text absolutely--*/
+  top: 0; /*-- sets position hard to the top--*/
 }
-.dot {
-  curosor: pointer;
-  height: 15px;
-  width: 15px;
-  margin: 0 2px;
-  background-color: #bbb;
-  border-radius: 50%
-  display: inline-block;
-  transition: background-color 0.6s ease;
+.text-center {
+  display: flex;
 }
-.active, .dot:hover {
-  background-color: #717171;
+.indicator {
+  cursor:pointer; /*-- changes hover cursor to the hand --*/
+  height: auto; /*-- sets height of pics --*/
+  width: 25%; /*-- sets width of pics --*/
+  margin: 0 2px; /*-- adds margin between pics --*/
+  background-color: #bbb; /*-- sets background color to light gray --*/
+  display: inline-block; /*-- displays in a horizontal line --*/
+  transition: all 250ms ease-in-out; /*-- allows opacity change to take time --*/
+  opacity: .5;
 }
+.indicator img {
+  width: 100% !important; /*-- small images fill available space --*/
+}
+.active, .indicator:hover {
+  opacity: 1; /*-- makes fully visible when hovered  --*/
+}
+/* Fading animation */
 .fade {
-  -webkit-animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-  animation-name: fade;
-  animation-duration: 1.5s;
+  -webkit-animation-name: fade; /*-- webkit prefix  --*/
+  -webkit-animation-duration: 1.5s; /*-- webkit prefix --*/
+  animation-name: fade; /*-- defines which animation to use --*/
+  animation-duration: 1.5s; /*-- sets the duration --*/
 }
-@-webkit-keyframes fade {
+@-webkit-keyframes fade { /*-- webkit prefix --*/
   from {opacity: .4}
   to {opacity: 1}
 }
-@keyframes fade {
-  from {opacity: .4}
-  to {opacity: 1}
+@keyframes fade { /*-- sets "fade" animation properties --*/
+  from {opacity: .4} /*-- sets start of animation --*/
+  to {opacity: 1} /*-- sets end of animation --*/
 }
-.card-img {
-  padding-top: 30px
+/* On smaller screens, hides slideshow */
+@media only screen and (max-width: 767px) {
+  .slideshow {display: none;}
 }
