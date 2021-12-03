@@ -53,13 +53,28 @@
   </section>
     <main class="gallery">
       <article class="card">
+        <div class="thumb"></div><hr />
         <div class="card-img">
           <img src="img/horse2.jpg" alt="" >
-        </div>
         <div class="card-content">
           <h3>Race horse at rest</h3>
           <p>A loyal race horse takes a rest and poses for a photo.</p>
+          <button data-modal="09" class="card-more button">View</button>
         </div>
+      </article>
+        <div id="09" class="modal">
+                    <div class="modal-content">
+                      <span class="close">&times;</span>
+                                  <div class="modal-body">
+            <img src="img/horse2.jpg" alt="example" />
+                                        <div class="eg-text">
+                                                <h3>Race horse at rest</h3>
+                                                <p>A loyal race horse takes a rest and poses for a photo. Horses are one of the most powerful and majestic animals to ever exist. Sometimes even these powerhouses need a quick rest before they push their hardest to cross the finish line</p>
+                                        </div>
+                                  </div>
+                    </div>
+        </div>
+
       </article><!--end .card-->
       <article class="card">
         <div class="card-img">

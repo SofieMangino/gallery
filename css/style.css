@@ -130,3 +130,10 @@ nav, footer {
 @media only screen and (max-width: 767px) {
   .slideshow {display: none;}
 }
+
+.thumb {
+  padding-bottom: 56%; /*-- creates ~16:9 ratio--*/
+  background-size: cover; /*--sets image to cover background --*/
+  background-position: center center; /*-- positions image horiz. and vert. center --*/
+  border-radius: 4px 4px 0 0; /*-- rounds top-left and top-right edges --*/
+}
