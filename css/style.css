@@ -29,7 +29,8 @@ a.nav-item {
 }
 a.nav-item:hover {
   color: var(--accent);
-  cursor: pointer; /*-- changes menu items to pointer on hover --*/
+  cursor: pointer;
+  color: #FFF /*-- changes menu items to pointer on hover --*/
 }
 .label {
   font-size: 1rem;
@@ -235,4 +236,74 @@ a.nav-item:hover {
   .modal-content {
     width: 100%;
   }
+}
+
+footer {
+  padding: .25rem;
+  color: var(--rev-text);
+  text-align: center;
+}
+
+.modal {
+   display: none;/*-- hidden by default --*/
+   position: fixed; /*-- doesn't move on the screen --*/
+   z-index: 1100; /*-- sets higher than anything else so modal is in the very front --*/
+   left: 0; /*-- positions at zero pixels from the left --*/
+   top: 0; /*-- positions at zero pixels from the top --*/
+   width: 100%; /*-- fills the space --*/
+   height: 100%; /*-- fills the space --*/
+   overflow: auto; /*-- handles overflow as normal. --*/
+   background-color: rgba(10, 10, 10, .4); /*--slightly transparent--*/
+}
+.modal-content {
+   background-color: var(--bg);
+   color: var(--text);
+   margin: 1rem auto;
+   padding: 1em;
+   width: 92%;
+   border-radius: 4px;
+   animation: fadein .3s ease-in-out; /*-- sets animation properties: name, duration, easing --*/
+}
+@keyframes fadein {
+  from{transform:scale(.1);} /*-- modal grows from very small to full size--*/
+}
+.close {
+   color: var(--text);
+   font-size: 2.5em;
+   font-weight: bold;
+   position: absolute; /*-- always at the top right of the modal --*/
+   top: 5px;
+   right: 4.25%;
+   transition: all .2s ease-in;
+   text-shadow: 2px 2px 5px #FAFAFA,
+               -2px -2px 5px #FAFAFA,
+               2px -2px 5px #FAFAFA,
+               -2px 2px 5px #FAFAFA;
+}
+.close:hover,
+.close:focus {
+   color: var(--accent);
+   text-decoration: none;
+   cursor: pointer;
+}
+.modal-body {
+  display: grid;
+  grid-template-columns: 1fr; /*-- default modal grid (for mobile screens)--*/
+  grid-gap: 2em;
+}
+.eg-text {
+  align-self: center;
+}
+.eg-text h3 {
+  margin-top: 0;
+  padding-top: 0;
+}
+.modal-body img {
+  margin-bottom: 1.5em;
+  width: 100%;
+  height: auto;
+}
+@media screen and (min-width: 1280px) { /*-- better modal display on largest screens --*/
+  .modal-body {grid-template-columns: 7fr 5fr;}
+
 }

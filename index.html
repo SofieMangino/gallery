@@ -63,16 +63,25 @@
       <article class="card">
         <div class="card-img">
           <img id="myImg1" src="img/horse2.jpg" alt=" Horses are one of the most majestic and powerful animals on the planet. Even these strong animals need to take a rest before being pushed to cross over the finish line." style="width:100%;max-width:300px">
-          <div id="myModal" class="modal">
-            <span class="close">&times;</span>
-            <img class="modal-content" id="img/horse2.jpg">
-            <div id="caption"></div>
-          </div>
+        </div>
         <div class="card-content">
           <h3>Race horse at rest</h3>
           <p>A loyal race horse takes a rest and poses for a photo.</p>
+          <button data-modal="#01" class="card-more button">View</button>
         </div>
       </article>
+      <div id="01" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <div class="modal-body">
+            <img src="img/horse2.jpg" alt="Horses are one of the most majestic and powerful animals on the planet. Even these strong animals need to take a rest before being pushed to cross over the finish line" />
+            <div class="eg-text">
+              <h3>Race horse at rest</h3>
+              <p>Horses are one of the most majestic and powerful animals on the planet. Even these strong animals need to take a rest before being pushed to cross over the finish line.</p>
+            </div>
+          </div><!--end .modal-body-->
+        </div><!--end .modal-content-->
+      </div><!--end .modal-->
       <article class="card">
         <div class="card-img">
           <img id="myImg2" src="img/dog.jpg" alt="" style="width:100%;max-width:300px">
@@ -180,6 +189,9 @@
     <footer>
       <p>&copy;2021 Sofie</p>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
     <script type="text/javascript" src="js/page.js"></script>
-  </body>
+    </body>
 </html>
