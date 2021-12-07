@@ -1,3 +1,12 @@
+function navToggle() { // creates a new function named navToggle
+  var x = document.getElementById("main-nav"); // creates a variable set to #main-nav
+    if (x.className === "topnav") { // if #main-nav has a class of .topnav,
+    x.className += " responsive";   // then add a new class
+  } else {                          // if it doesn't,
+    x.className = "topnav";         // set class to .topnav
+  } //closes if-else
+}
+
 var slideIndex = 1; // creates a new variable, names it slideIndex, and sets it = to 1
 
 showSlides(slideIndex); // uses the index variable as the parameter of the showSlides function
@@ -26,13 +35,19 @@ function showSlides(n) { // creates the showSlides function using n as the param
   indicator[slideIndex-1].className += " active"; // make indicator active
 }
 
-$(".button").on("click", function() { // when item with class of button is clicked, fire function
-  var modal = $(this).data("modal"); // sets modal var equal to data attribute
-  $(modal).show(); // opens up modal (much code hidden here by jQuery)
-});
-$(".modal").on("click", function(e) { // sets up click function
-  var className = e.target.className; // var className set to event target
-  if(className === "modal" || className === "close"){ // if conditions are met...
-    $(this).closest(".modal").hide(); // then hide the modal
-  } // closes if-statement
-}); // closes function
+var modal = document.getElementById("myModal");
+
+var img = document.getElementById("myImg1");
+var modalImg = document.getElementById("img/horse2.jpg");
+var captionText = document.getElementById("caption");
+img.onclick = function(){
+  modal.style.display = "block";
+  modalImg.src = this.src;
+  captionText.innerHTML = this.alt;
+}
+
+var span = document.getElementsByClassName("close")[0];
+
+span.onclick = function() {
+  modal.style.display = "none";
+}

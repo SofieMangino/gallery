@@ -7,14 +7,39 @@ body{
   background-color: #404040
 }
 
-nav, footer {
-  margin: 1em 0;
-  padding: 1em 0;
-  display: flex;
-  justify-content: space-between;
-  background-color: #404040;
-  color: var(--light);
+.topnav { /*-- main navigation element --*/
+  margin-top: -.25rem; /*-- uses negative margin to pull menu to top --*/
+  padding-bottom: .5rem; /*-- creates a little space below nav --*/
+  background-color: var(--prime);
+  display: flex; /*-- creates a flex container --*/
+  flex-direction: row; /*-- direction is for MOBILE screen sizes --*/
+  justify-content: space-around; /*-- lays out menu items--*/
+  align-content: center; /*-- vertically aligns menu items to center --*/
+  z-index: 1000; /*-- makes navbar always sit in the front, on the z-axis--*/
+  width: 100%; /*-- makes navbar occupy full width of the body --*/
 }
+a.nav-item {
+  position: relative; /*-- overcomes negative margin in above rule --*/
+  top: 4px; /*-- tweaks vertical position --*/
+  text-align: center; /*-- center-aligns all text inside their boxes --*/
+  padding: .75em 0; /*-- provides padding inside menu items --*/
+  margin: auto 0; /*-- centers menu text vertically --*/
+  color: var(--rev-text);
+  transition: color 250ms ease-in-out; /*-- specifies transition, duration, and easing --*/
+}
+a.nav-item:hover {
+  color: var(--accent);
+  cursor: pointer; /*-- changes menu items to pointer on hover --*/
+}
+.label {
+  font-size: 1rem;
+}
+.nav-item.trigram {
+  display: none; /*-- hides trigram (hamburger menu button) by default --*/
+  text-decoration: none; /*-- removes underline --*/
+  font-size: 2rem; /*-- makes much larger than normal text--*/
+}
+
 .gallery {
   display: grid;
   grid-gap: 1em;
@@ -131,9 +156,83 @@ nav, footer {
   .slideshow {display: none;}
 }
 
-.thumb {
-  padding-bottom: 56%; /*-- creates ~16:9 ratio--*/
-  background-size: cover; /*--sets image to cover background --*/
-  background-position: center center; /*-- positions image horiz. and vert. center --*/
-  border-radius: 4px 4px 0 0; /*-- rounds top-left and top-right edges --*/
+#myImg1 {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg1:hover {opacity: 0.7;}
+
+#myImg2 {
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+#myImg2:hover {opacity: 0.7;}
+
+.modal{
+  display: none;
+  position: fixed;
+  z-index: 1;
+  padding-top: 100px
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0,0,0);
+  background-color: rgba(0,0,0,0.9);
+  }
+
+  .modal-content{
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+  }
+
+  #caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width:700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+  }
+
+  .modal-content, #caption {
+    animation-name: zoom-in;
+    animation-duration: 0.6s;
+  }
+
+  @keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+  }
+
+  .close {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close:hover,
+.close:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+@media only screen and (max-width: 700px){
+  .modal-content {
+    width: 100%;
+  }
 }
