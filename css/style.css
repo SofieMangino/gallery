@@ -293,10 +293,12 @@ footer {
 }
 .eg-text {
   align-self: center;
+  color: #FFF;
 }
 .eg-text h3 {
   margin-top: 0;
   padding-top: 0;
+  color: #FFF;
 }
 .modal-body img {
   margin-bottom: 1.5em;
